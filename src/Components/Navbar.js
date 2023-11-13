@@ -1,27 +1,30 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React from "react";
+import {} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Navbar() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("currentuser");
+    navigate("/");
+  };
   return (
     <div>
       <nav>
-        <div className='row'>
-          <div className='col'>
+        <div className="row">
+          <div className="col">
             <button>
-              <NavLink to='/home' className='text-decoration-none text-start'>Patient Info</NavLink>
+              <Link to="/modal" className="text-decoration-none text-start">
+                Add Patient
+              </Link>
             </button>
           </div>
-
-          <div className='col'>
-            <button>
-              <NavLink to='/login' className='text-decoration-none text-end'>Logout</NavLink>
-            
-            </button>
-
+          <div className="col">
+            <button onClick={handleLogout}>Logout</button>
           </div>
         </div>
 
         {/* <LogOut user={user} setUser={setUser}/> */}
       </nav>
     </div>
-  )
+  );
 }
