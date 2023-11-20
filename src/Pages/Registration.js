@@ -6,14 +6,19 @@ import * as Yup from "yup";
 const Register = () => {
   const [soak, setsoak] = useState("");
 
+
   const validationSchema = Yup.object({
-    name: Yup.string().required("Please enter Name"),
+    name: Yup.string().required("Please enter name"),
     email: Yup.string()
       .required("Please enter Email")
       .email("Please enter a valid email"),
     // userName: Yup.string().required("Please enter username"),
     password: Yup.string().required("Please enter password"),
+    
   });
+  const handleCreate = (items) => {
+    // window.location.reload(false);
+  };
 
   return (
     <Formik
@@ -39,7 +44,7 @@ const Register = () => {
 
         setTimeout(() => {
           setsoak(null);
-        }, 2500);
+        }, 5500);
 
         setSubmitting(false);
       }}
@@ -71,20 +76,18 @@ const Register = () => {
             <div className="col-md-5 text-start ">
               <h1 className="text-center">REGISTER</h1>
 
-              <div className="">
-                <label className="text-start"> Name:</label>
+              <div className="m-2">
+                <label className="text-start "> Name:</label>
                 <input
                   name="name"
                   type="name"
-                  placeholder="Your Full Name"
+                  placeholder="Your Full name"
                   className=" form-control"
                   value={values.name}
                   onChange={handleChange}
                 />
                 {errors.name && touched.name && errors.name}
               </div>
-
-              <br />
 
               {/* <div className="">
                 <label className="text-start"> UserName:</label>
@@ -99,9 +102,7 @@ const Register = () => {
                 {errors.userName && touched.userName && errors.userName}
               </div> */}
 
-              <br />
-
-              <div className="">
+              <div className="m-2">
                 <label className="text-start"> Email:</label>
                 <input
                   name="email"
@@ -114,9 +115,7 @@ const Register = () => {
                 {errors.email && touched.email && errors.email}
               </div>
 
-              <br />
-
-              <div className="">
+              <div className="m-2">
                 <label className="text-start"> Password:</label>
                 <input
                   name="password"
@@ -137,6 +136,7 @@ const Register = () => {
                 <button
                   type="submit"
                   className="btn btn-secondary rounded-pill"
+                  onClick={handleCreate}
                 >
                   CREATE ACCOUNT
                 </button>

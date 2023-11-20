@@ -74,7 +74,7 @@ const Login = () => {
     >
       {({ values, touched, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <div className="container m-md-5  row  text-center  " style={{}}>
+          <div className="container m-md-4  row  text-center  " style={{}}>
             <div className="col-md-7  d-flex justify-content-center align-items-center d-flex flex-column">
               <div className="">
                 <img
@@ -96,13 +96,14 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="col-md-5 text-start">
-              <h1>Welcome to Log In </h1>
-              <div>
+            <div className="col-md-5 text-start mt-5">
+              <h1 className="text-center">LOGIN ACCOUNT </h1>
+              <div className="m-2">
                 <label>Email: </label>
                 <input
                   type="email"
                   className=" form-control"
+                  placeholder="email@gmail.com"
                   name="email"
                   value={values.email}
                   onChange={handleChange}
@@ -110,14 +111,12 @@ const Login = () => {
                 {errors.email && touched.email && errors.email}
               </div>
 
-              <br />
-              <br />
-
-              <div>
+              <div className="m-2">
                 <label>Password:</label>
                 <input
                   name="password"
                   type="password"
+                  placeholder="Password"
                   className=" form-control"
                   value={values.password}
                   onChange={handleChange}
@@ -125,17 +124,17 @@ const Login = () => {
                 {errors.password && touched.password && errors.password}
               </div>
 
-              <br />
-              <br />
-
-              <div className="text-center">
+              <div className="text-center m-3">
                 <button type="submit" className="btn btn-secondary text-center">
                   Submit
                 </button>
               </div>
-              <br />
+
               <div className="text-center">
-                <Link className="text-decoration-none text-dark" to="/register">
+                <Link
+                  className="text-decoration-none text-dark link-dark"
+                  to="/register"
+                >
                   Click For Registration
                 </Link>
               </div>
