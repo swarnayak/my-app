@@ -6,14 +6,15 @@ const PatientInfo = () => {
   const navigate = useNavigate();
   const getPatient = JSON.parse(localStorage.getItem("patient")) || [];
 
-  const [Patient, setPatient] = useState();
 
+  const [Patient, setPatient] = useState();
   const handleDelete = (items) => {
     const getPateient = JSON.parse(localStorage.getItem("patient"));
     const filterData = getPateient.filter((data) => data?.id !== items.id);
     localStorage.setItem("patient", JSON.stringify(filterData));
     setPatient((prev) => !prev);
     // window.location.reload(false);
+    window.location.reload(false);
   };
   const handleCreate = () => {
     navigate("/create-pateient");
@@ -25,6 +26,7 @@ const PatientInfo = () => {
     },
     [getPatient]
   );
+
 
   return (
     <div>
